@@ -43,7 +43,7 @@ export class PlayCommand extends BaseCommand {
         if (/^https?:\/\/((www|music)\.youtube\.com|youtube.com)\/playlist(.*)$/.exec(url)) {
             try {
                 const id = resolveYTPlaylistID(url);
-                if (!id) return message.channel.send(createEmbed("error", "Invalid YouTube Playlist URL."));
+                if (!id) return message.channel.send(createEmbed("error", "Sai URL YouTube rồi."));
                 const playlist = await this.client.youtube.getPlaylist(id);
                 const videos = await playlist.getVideos();
                 let skippedVideos = 0;

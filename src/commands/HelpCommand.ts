@@ -16,7 +16,7 @@ export class HelpCommand extends BaseCommand {
         if (command && !command.meta.disable) {
             message.channel.send(
                 createEmbed("info")
-                    .setAuthor(`Information for the ${command.meta.name} command`)
+                    .setAuthor(`Thông tin cho lệnh ${command.meta.name}`)
                     .setThumbnail("https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/question_mark.png")
                     .addFields({ name: "Name", value: `\`${command.meta.name}\``, inline: false },
                         { name: "Description", value: command.meta.description, inline: true },
