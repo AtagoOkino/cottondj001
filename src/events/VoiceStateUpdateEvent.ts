@@ -27,8 +27,8 @@ export class VoiceStateUpdateEvent extends BaseEvent {
         if (oldMember?.id === botID && oldID === queueVC.id && newID === undefined) {
             try {
                 queue.oldMusicMessage = null; queue.oldVoiceStateUpdateMessage = null;
-                this.client.logger.info(`${this.client.shard ? `[Shard #${this.client.shard.ids[0]}]` : ""} Disconnected from the voice channel at ${newState.guild.name}, the queue was deleted.`);
-                queue.textChannel?.send(createEmbed("warn", "I was disconnected from the voice channel, the queue has been deleted."))
+                this.client.logger.info(`${this.client.shard ? `[Shard #${this.client.shard.ids[0]}]` : ""} Mất kết nổi khỏi ${newState.guild.name}, toàn bộ hàng chờ đã bay màu.`);
+                queue.textChannel?.send(createEmbed("warn", "Ôi khôq, tôi đã bị mất kết nối, toàn bộ hàng chờ đã bị xóa."))
                     .catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
                 return newState.guild.queue = null;
             } catch (e) {
@@ -88,7 +88,7 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 newState.guild.queue!.timeout = null;
                 const song = queue.songs.first();
                 queue.textChannel?.send(
-                    createEmbed("info", `▶ **|** Someone joins the voice channel.\n🎶 **|** Now Playing: **[${song!.title}](${song!.url})**`)
+                    createEmbed("info", `▶ **|** Ai đấy vừa nào kênh.\n🎶 **|** Now Playing: **[${song!.title}](${song!.url})**`)
                         .setThumbnail(song!.thumbnail)
                         .setTitle("Queue Resumed")
                 ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));

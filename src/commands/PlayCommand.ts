@@ -61,7 +61,7 @@ export class PlayCommand extends BaseCommand {
                 }
                 if (skippedVideos !== 0) {
                     message.channel.send(
-                        createEmbed("warn", `${skippedVideos} track${skippedVideos >= 2 ? "s" : ""} are skipped because it was a private video.`)
+                        createEmbed("warn", `${skippedVideos} track${skippedVideos >= 2 ? "s" : ""} đã bị skip vì đó là video riêng tư.`)
                     ).catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                 }
                 const playlistAlreadyQueued = this.playlistAlreadyQueued.get(message.guild.id);
@@ -70,7 +70,7 @@ export class PlayCommand extends BaseCommand {
                     const songs = playlistAlreadyQueued!.map(s => `**${num++}.** **[${s.title}](${s.url})**`);
                     message.channel.send(
                         createEmbed("warn", `Tất cả ${playlistAlreadyQueued!.length} track${playlistAlreadyQueued!.length >= 2 ? "s" : ""} đã bị skip vì trùng lặp` +
-                        ` tôi không được thiết lập để chạy trùng lặp, vui lòng dùng **\`${this.client.config.prefix}repeat\`** instead.`)
+                        ` l Okino không set để tôi chạy trùng nhạc, vui lòng dùng **\`${this.client.config.prefix}repeat\`** instead.`)
                             .setTitle("Đã thêm vào hàng chờ")
                     ).catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                     const pages = this.client.util.paginate(songs.join("\n"));
