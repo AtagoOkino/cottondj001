@@ -68,13 +68,13 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 newState.guild.queue = null;
                 queue.oldMusicMessage = null; queue.oldVoiceStateUpdateMessage = null;
                 queue.textChannel?.send(
-                    createEmbed("error", `⏹ **|** **\`${duration}\`** have passed and there is no one who joins my voice channel, the queue has been deleted.`)
+                    createEmbed("error", `⏹ **|** **\`${duration}\`** đã hết, không ai vào kênh cả :( tôi xóa hàng chờ đây, dỗi.`)
                         .setTitle("Queue Deleted")
                 ).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
             }, timeout);
             queue.textChannel?.send(
-                createEmbed("warn", "⏸ **|** Everyone has left from my voice channel, the queue has been paused. " +
-                    `If there's no one who joins my voice channel in the next **\`${duration}\`**, the queue will be deleted.`)
+                createEmbed("warn", "⏸ **|** Ôi khôq, mọi người đã bỏ tôi :< hàng chờ đã được tạm dừng. " +
+                    `Nếu không ai vào kênh trong khoảng **\`${duration}\`**, tôi dỗi là tôi xóa hàng chờ đấy :(.`)
                     .setTitle("Queue Paused")
             ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
         } catch (e) { this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e); }
@@ -88,7 +88,7 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 newState.guild.queue!.timeout = null;
                 const song = queue.songs.first();
                 queue.textChannel?.send(
-                    createEmbed("info", `▶ **|** Ai đấy vừa nào kênh.\n🎶 **|** Now Playing: **[${song!.title}](${song!.url})**`)
+                    createEmbed("info", `▶ **|** Ai đấy vừa nào kênh.\n🎶 **|** Đang phát: **[${song!.title}](${song!.url})**`)
                         .setThumbnail(song!.thumbnail)
                         .setTitle("Queue Resumed")
                 ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
