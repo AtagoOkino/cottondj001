@@ -193,12 +193,12 @@ export class PlayCommand extends BaseCommand {
                 message.guild?.queue.songs.clear();
                 message.guild!.queue = null;
                 this.client.logger.error("PLAY_CMD_ERR:", error);
-                message.channel.send(createEmbed("error", `Lỗi: Không thể vào phòng voice chat.\nReason: \`${(error as Error).message}\``))
+                message.channel.send(createEmbed("error", `Lỗi: Không thể vào phòng voice chat.\nLí do: \`${(error as Error).message}\``))
                     .catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                 return undefined;
             }
             this.play(message.guild!).catch(err => {
-                message.channel.send(createEmbed("error", `Lỗi khi đang chơi nhạc\nReason: \`${err.message}\``))
+                message.channel.send(createEmbed("error", `Lỗi khi đang chơi nhạc\nLí do: \`${err.message}\``))
                     .catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                 return this.client.logger.error("PLAY_CMD_ERR:", err);
             });
@@ -248,7 +248,7 @@ export class PlayCommand extends BaseCommand {
                     .catch(e => this.client.logger.error("PLAY_ERR:", e))
                     .finally(() => {
                         this.play(guild).catch(e => {
-                            serverQueue.textChannel?.send(createEmbed("error", `Lỗi khi chơi nhạc\nReason: \`${e}\``))
+                            serverQueue.textChannel?.send(createEmbed("error", `Lỗi khi chơi nhạc\nLí do: \`${e}\``))
                                 .catch(e => this.client.logger.error("PLAY_ERR:", e));
                             serverQueue.connection?.dispatcher.end();
                             return this.client.logger.error("PLAY_ERR:", e);
@@ -256,7 +256,7 @@ export class PlayCommand extends BaseCommand {
                     });
             })
             .on("error", (err: Error) => {
-                serverQueue.textChannel?.send(createEmbed("error", `Lỗi khi chơi nhạc\nReason: \`${err.message}\``))
+                serverQueue.textChannel?.send(createEmbed("error", `Lỗi khi chơi nhạc\nLí do: \`${err.message}\``))
                     .catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                 guild.queue?.voiceChannel?.leave();
                 guild.queue = null;
