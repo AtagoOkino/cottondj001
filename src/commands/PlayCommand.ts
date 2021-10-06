@@ -114,12 +114,12 @@ export class PlayCommand extends BaseCommand {
                     let index = 0;
                     const msg = await message.channel.send(
                         createEmbed("info")
-                            .setAuthor("Tracks Selection", message.client.user?.displayAvatarURL() as string)
+                            .setAuthor("Chọn track", message.client.user?.displayAvatarURL() as string)
                             .setDescription(
                                 `Xin vui lòng chọn một trong những kết quả từ 1-${this.client.config.searchMaxResults}\n` +
                                 `\`\`\`\n${videos.map(video => `${++index} - ${this.cleanTitle(video.title)}`).join("\n")}\`\`\``
                             )
-                            .setFooter("Type cancel or c to cancel tracks selection.")
+                            .setFooter("Ghi cancel hoặc c để bỏ chọn track.")
                     );
                     try {
                         response = await message.channel.awaitMessages((msg2: Message) => {
