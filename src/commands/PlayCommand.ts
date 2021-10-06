@@ -25,7 +25,7 @@ export class PlayCommand extends BaseCommand {
         const voiceChannel = message.member!.voice.channel!;
         if (!args[0]) {
             return message.channel.send(
-                createEmbed("warn", `Invalid usage, please use **\`${this.client.config.prefix}help ${this.meta.name}\`** for more information`)
+                createEmbed("warn", `Lỗi, vui lòng dùng **\`${this.client.config.prefix}help ${this.meta.name}\`** để biết thêm thông tin chi tiết`)
             );
         }
         const searchString = args.join(" ");
@@ -33,7 +33,7 @@ export class PlayCommand extends BaseCommand {
 
         if (message.guild?.queue !== null && voiceChannel.id !== message.guild?.queue.voiceChannel?.id) {
             return message.channel.send(
-                createEmbed("warn", `The music player is already playing to **${message.guild!.queue.voiceChannel!.name}** voice channel`)
+                createEmbed("warn", `Tôi đang quẩy ở**${message.guild!.queue.voiceChannel!.name}** voice channel`)
             );
         }
 
@@ -48,7 +48,7 @@ export class PlayCommand extends BaseCommand {
                 const videos = await playlist.getVideos();
                 let skippedVideos = 0;
                 const addingPlaylistVideoMessage = await message.channel.send(
-                    createEmbed("info", `Adding all tracks in playlist: **[${playlist.title}](${playlist.url})**, please wait...`)
+                    createEmbed("info", `Thêm tất cả các track có trong playlist: **[${playlist.title}](${playlist.url})**, vui lòng đợi...`)
                         .setThumbnail(playlist.thumbnailURL)
                 );
                 for (const video of Object.values(videos)) {
@@ -69,8 +69,8 @@ export class PlayCommand extends BaseCommand {
                     let num = 1;
                     const songs = playlistAlreadyQueued!.map(s => `**${num++}.** **[${s.title}](${s.url})**`);
                     message.channel.send(
-                        createEmbed("warn", `Over ${playlistAlreadyQueued!.length} track${playlistAlreadyQueued!.length >= 2 ? "s" : ""} are skipped because it was a duplicate` +
-                        ` and this bot configuration disallow duplicated tracks in queue, please use **\`${this.client.config.prefix}repeat\`** instead.`)
+                        createEmbed("warn", `Tất cả ${playlistAlreadyQueued!.length} track${playlistAlreadyQueued!.length >= 2 ? "s" : ""} đã bị skip vì trùng lặp` +
+                        ` tôi không được thiết lập để chạy trùng lặp, vui lòng dùng **\`${this.client.config.prefix}repeat\`** instead.`)
                             .setTitle("Đã thêm vào hàng chờ")
                     ).catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
                     const pages = this.client.util.paginate(songs.join("\n"));
