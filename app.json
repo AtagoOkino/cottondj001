@@ -87,7 +87,7 @@
             "required": false
         }
     },
-    "repository": "https://github.com/zhycorp/disc-11",
+    "repository": "https://github.com/atagookino/cotton-dj",
     "stack": "container",
     "formation": {
         "worker": {
