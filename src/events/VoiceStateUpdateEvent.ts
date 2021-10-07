@@ -88,7 +88,7 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 newState.guild.queue!.timeout = null;
                 const song = queue.songs.first();
                 queue.textChannel?.send(
-                    createEmbed("info", `▶ **|** Ủa ai đó vừa nào kênh nè.\n🎶 **|** Tiếp tục phát: **[${song!.title}](${song!.url})**`)
+                    createEmbed("info", `▶ **|** Adu, ai đó vừa nào kênh nè.\n🎶 **|** Tiếp tục phát: **[${song!.title}](${song!.url})**`)
                         .setThumbnail(song!.thumbnail)
                         .setTitle("Tiếp tục chạy nhạc")
                 ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
