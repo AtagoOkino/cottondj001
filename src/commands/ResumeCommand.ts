@@ -6,7 +6,7 @@ import { Message } from "discord.js";
 import { satisfies } from "semver";
 
 @DefineCommand({
-    description: "Resume the music player",
+    description: "Tiếp tục phát nhạc",
     name: "resume",
     usage: "{prefix}resume"
 })

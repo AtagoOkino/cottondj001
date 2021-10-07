@@ -6,7 +6,7 @@ import { Message, TextChannel } from "discord.js";
 
 @DefineCommand({
     aliases: ["q"],
-    description: "Show the current queue",
+    description: "Xem hàng chờ hiện tại",
     name: "queue",
     usage: "{prefix}queue"
 })
@@ -15,7 +15,7 @@ export class QueueCommand extends BaseCommand {
     public execute(message: Message): any {
         const embed = createEmbed("info")
             .setThumbnail(message.client.user?.avatarURL() as string)
-            .setTitle("Queue List");
+            .setTitle("Hàng chờ");
 
         let num = 1;
         const songs = message.guild?.queue?.songs.map(s => `**${num++}.** **[${s.title}](${s.url})**`);
@@ -42,7 +42,7 @@ export class QueueCommand extends BaseCommand {
                                     index++;
                                     break;
                             }
-                            embed.setDescription(indexes[index]).setFooter(`Page ${index + 1} of ${indexes.length}`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png");
+                            embed.setDescription(indexes[index]).setFooter(`Trang ${index + 1} of ${indexes.length}`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png");
                             msg.edit(embed).catch(e => this.client.logger.error("QUEUE_CMD_ERR:", e));
                         })
                         .on("end", () => {

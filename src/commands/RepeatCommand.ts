@@ -7,7 +7,7 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["loop", "music-repeat", "music-loop"],
-    description: "Repeat current music or the queue",
+    description: "Lặp lại bài nhạc hoặc hàng chờ",
     name: "repeat",
     usage: "{prefix}repeat [all | one | off]"
 })

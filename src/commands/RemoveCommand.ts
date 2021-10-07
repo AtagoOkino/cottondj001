@@ -6,9 +6,9 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["rm", "delete", "del"],
-    description: "Remove a track from the current queue",
+    description: "Xóa track khỏi hàng chờ",
     name: "remove",
-    usage: "{prefix}remove <track number>"
+    usage: "{prefix}remove <số thứ tự của track trong hàng chờ>"
 })
 export class RemoveCommand extends BaseCommand {
     @isMusicQueueExists()
