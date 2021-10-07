@@ -1,7 +1,7 @@
 FROM node:16.9.1-alpine as build-stage
 
-LABEL name "Disc 11 (build stage)"
-LABEL maintainer "Zhycorp <support@zhycorp.net>"
+LABEL name "Cotton-DJ (build stage)"
+LABEL maintainer "atagookino"
 
 WORKDIR /tmp/build
 
@@ -30,8 +30,8 @@ RUN npm prune --production
 # Get ready for production
 FROM node:16.9.1-alpine
 
-LABEL name "Disc 11"
-LABEL maintainer "Zhycorp <support@zhycorp.net>"
+LABEL name "Cotton-DJ"
+LABEL maintainer "atagookino"
 
 WORKDIR /app
 
