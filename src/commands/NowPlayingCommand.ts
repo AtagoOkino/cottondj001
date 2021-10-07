@@ -6,7 +6,7 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["np", "now-playing"],
-    description: "Send info about the current music player",
+    description: "Thông tin về nhạc đang được phát",
     name: "nowplaying",
     usage: "{prefix}nowplaying"
 })

@@ -4,7 +4,7 @@ import { Message, MessageEmbed } from "discord.js";
 
 @DefineCommand({
     aliases: ["pang", "pung", "peng", "pong"],
-    description: "Shows the current ping of the bot",
+    description: "Show độ trễ hiện tại",
     name: "ping",
     usage: "{prefix}ping"
 })

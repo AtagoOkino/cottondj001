@@ -10,10 +10,10 @@ import { Util, VoiceChannel, Message, TextChannel, Guild, Collection, Snowflake 
 import { decodeHTML } from "entities";
 
 @DefineCommand({
-    aliases: ["p", "add", "play-music"],
-    description: "Play some music",
-    name: "play",
-    usage: "{prefix}play <youtube video or playlist link | youtube video name>"
+    các_cách_viết_khác: ["p", "add", "play-music"],
+    mô_tả: "Phát nhạc gì đó",
+    tên: "play",
+    cách_dùng: "{prefix}play <link video youtube hoặc playlist | tên video>"
 })
 export class PlayCommand extends BaseCommand {
     private readonly playlistAlreadyQueued: Collection<Snowflake, ISong[]> = new Collection();

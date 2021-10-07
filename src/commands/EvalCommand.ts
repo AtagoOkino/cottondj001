@@ -6,11 +6,11 @@ import { Message } from "discord.js";
 import { inspect } from "util";
 
 @DefineCommand({
-    aliases: ["evaluate", "ev", "js-exec"],
+    các_cách_viết_khác: ["evaluate", "ev", "js-exec"],
     cooldown: 0,
-    description: "Đánh giá",
-    name: "eval",
-    usage: "{prefix}eval <code gì đấy>"
+    mô_tả: "Đánh giá",
+    tên: "eval",
+    cách_dùng: "{prefix}eval <code gì đấy>"
 })
 export class EvalCommand extends BaseCommand {
     public async execute(message: Message, args: string[]): Promise<any> {

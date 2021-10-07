@@ -5,7 +5,7 @@ import { createEmbed } from "../utils/createEmbed";
 import { Message } from "discord.js";
 
 @DefineCommand({
-    description: "Pause the music player",
+    description: "Dừng phát nhạc",
     name: "pause",
     usage: "{prefix}pause"
 })
