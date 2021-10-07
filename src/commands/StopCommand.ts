@@ -6,7 +6,7 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["st", "disconnect", "dc"],
-    description: "Stop the queue",
+    description: "Dừng hàng chờ",
     name: "stop",
     usage: "{prefix}stop"
 })

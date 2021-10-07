@@ -6,9 +6,9 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["vol"],
-    description: "Show or change the music player volume",
+    description: "Xem hoặc chỉnh âm lượng hiện tại",
     name: "volume",
-    usage: "{prefix}volume [new volume]"
+    usage: "{prefix}volume [âm lượng mới]"
 })
 export class VolumeCommand extends BaseCommand {
     @isUserInTheVoiceChannel()

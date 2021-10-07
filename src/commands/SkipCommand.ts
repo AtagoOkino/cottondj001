@@ -6,7 +6,7 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["s"],
-    description: "Skip the current music",
+    description: "Skip bài hiện tại",
     name: "skip",
     usage: "{prefix}skip"
 })
