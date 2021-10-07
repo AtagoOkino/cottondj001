@@ -69,13 +69,13 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 queue.oldMusicMessage = null; queue.oldVoiceStateUpdateMessage = null;
                 queue.textChannel?.send(
                     createEmbed("error", `⏹ **|** **\`${duration}\`** đã hết, không ai vào kênh cả :( tôi xóa hàng chờ đây, dỗi.`)
-                        .setTitle("Queue Deleted")
+                        .setTitle("Đã xóa hàng chờ")
                 ).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
             }, timeout);
             queue.textChannel?.send(
                 createEmbed("warn", "⏸ **|** Ôi khôq, mọi người đã bỏ tôi :< hàng chờ đã được tạm dừng. " +
                     `Nếu không ai vào kênh trong khoảng **\`${duration}\`**, tôi dỗi là tôi xóa hàng chờ đấy :(.`)
-                    .setTitle("Queue Paused")
+                    .setTitle("Đã xóa hàng chờ vì dỗi")
             ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
         } catch (e) { this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e); }
     }
@@ -88,9 +88,9 @@ export class VoiceStateUpdateEvent extends BaseEvent {
                 newState.guild.queue!.timeout = null;
                 const song = queue.songs.first();
                 queue.textChannel?.send(
-                    createEmbed("info", `▶ **|** Ai đấy vừa nào kênh.\n🎶 **|** Đang phát: **[${song!.title}](${song!.url})**`)
+                    createEmbed("info", `▶ **|** Ủa ai đó vừa nào kênh nè.\n🎶 **|** Tiếp tục phát: **[${song!.title}](${song!.url})**`)
                         .setThumbnail(song!.thumbnail)
-                        .setTitle("Queue Resumed")
+                        .setTitle("Tiếp tục chạy nhạc")
                 ).then(m => queue.oldVoiceStateUpdateMessage = m.id).catch(e => this.client.logger.error("VOICE_STATE_UPDATE_EVENT_ERR:", e));
                 newState.guild.queue!.playing = true;
                 newState.guild.queue?.connection?.dispatcher.resume();
