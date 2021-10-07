@@ -5,9 +5,9 @@ import { Message } from "discord.js";
 
 @DefineCommand({
     aliases: ["h", "command", "commands", "cmd", "cmds"],
-    description: "Shows the command list",
+    description: "Show các lệnh",
     name: "help",
-    usage: "{prefix}help [command]"
+    usage: "{prefix}help [lệnh]"
 })
 export class HelpCommand extends BaseCommand {
     public execute(message: Message, args: string[]): void {
@@ -26,9 +26,9 @@ export class HelpCommand extends BaseCommand {
         } else {
             message.channel.send(
                 createEmbed("info", message.client.commands.filter(cmd => !cmd.meta.disable && cmd.meta.name !== "eval").map(c => `\`${c.meta.name}\``).join(" "))
-                    .setAuthor(`${message.client.user!.username} - Command List`)
+                    .setAuthor(`${message.client.user!.username} - Danh sách lệnh`)
                     .setThumbnail(message.client.user?.displayAvatarURL() as string)
-                    .setFooter(`Ghi ${message.client.config.prefix}help <command> to get information on a specific command.`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png")
+                    .setFooter(`Ghi ${message.client.config.prefix}help <tên lệnh> để biết thêm thông tin chi tiết.`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png")
             ).catch(e => this.client.logger.error("HELP_CMD_ERR:", e));
         }
     }

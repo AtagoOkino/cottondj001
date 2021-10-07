@@ -8,9 +8,9 @@ import { inspect } from "util";
 @DefineCommand({
     aliases: ["evaluate", "ev", "js-exec"],
     cooldown: 0,
-    description: "Evaluate to the bot",
+    description: "Đánh giá",
     name: "eval",
-    usage: "{prefix}eval <some code>"
+    usage: "{prefix}eval <code gì đấy>"
 })
 export class EvalCommand extends BaseCommand {
     public async execute(message: Message, args: string[]): Promise<any> {

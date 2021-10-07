@@ -5,7 +5,7 @@ import { disableInviteCmd } from "../config";
 import { Message } from "discord.js";
 
 @DefineCommand({
-    description: "Send the bot's invite link",
+    description: "Gửi link mời bot",
     disable: disableInviteCmd,
     usage: "{prefix}invite",
     name: "invite"
